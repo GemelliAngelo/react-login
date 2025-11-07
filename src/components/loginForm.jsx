@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Contact from "../pages/contact";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({});
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,7 +22,7 @@ export default function LoginForm() {
 
     fetch("http://localhost:3000/login", requestOptions)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => navigate("/contact", { state: { user: data.user } }));
   };
 
   return (

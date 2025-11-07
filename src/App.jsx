@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import "./App.css";
-import Home from "./pages/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
 import Contact from "./pages/contact";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
