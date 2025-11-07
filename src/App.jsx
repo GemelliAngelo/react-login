@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import LoginForm from "./components/loginForm";
+import Home from "./pages/home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Contact from "./pages/contact";
 
 function App() {
   const [data, setData] = useState([]);
@@ -12,13 +14,12 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="card shadow-lg p-4">
-          <LoginForm />
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
